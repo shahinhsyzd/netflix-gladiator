@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Petrona:wght@300;400;500&display=swap');
+
+:root {
+    --main-color-for-buttons: #be1919;
+}
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Poppins',
+    sans-serif;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.hero .show-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Navigation Bar */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    padding: 0 100px;
+}
+
+.logo {
+    width: 200px;
+}
+/* display inline block did not work for li elements */
+header ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header ul li {
+    list-style-type: none;
+    padding: 10px;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+}
+
+
+header ul li::after{
+    display:block;
+    content: '';
+    border-bottom: solid 3px #fff;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+}
+
+header ul li:hover::after {
+    transform: scaleX(1);
+}
+
+.search-bar {
+    background-image: url(images/loupe.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 20px;
+    background-position-x: 4%;
+    backdrop-filter: blur(8px);
+}
+
+.horizontal-line {
+    border-left: 2px solid #fff;
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    z-index: 2;
+    height: 20px;
+}
+.search-bar input {
+    background-color: transparent;
+    border: 1px solid #fff;
+    outline: none;
+    height: 40px;
+    max-width: 300px;
+    padding-left: 50px;
+    border-radius: 4px;
+}
+::placeholder {
+    color: #fff;
+}
+
+/* Showcase */
+
+.overlay {
+    width: 50%;
+    height: 100vh;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.9475140397956058) 31%, rgba(0, 0, 0, 0.8606793059020483) 47%, rgba(0, 0, 0, 0.7178221630449055) 70%, rgba(0, 0, 0, 0.5105392498796393) 84%, rgba(0, 0, 0, 0) 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.showcase {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px 100px;
+    position: absolute;
+    left: 0;
+    z-index: 3;
+}
+.name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.producer {
+    filter: invert();
+    width: 200px;
+}
+
+.producer:hover {
+    transform: scaleX(1.5) scaleY(1.5);
+    transition: 0.5s;
+}
+
+.name h1 {
+    font-size: 4rem;
+    font-family: 'Petrona',
+    serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 10px;
+    padding: 20px 0;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.info div {
+    padding: 0 15px;
+    border-left: solid 1px #fff;
+}
+.info div:first-child {
+    border: none;
+    padding-left: 0;
+}
+
+.info div span {
+    background-color: var(--main-color-for-buttons);
+    padding: 2px 7px;
+}
+
+.showcase p {
+    padding: 10px 0;
+    text-align: justify;
+    max-width: 500px;
+}
+
+/* Buttons */
+
+.buttons {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.play-button {
+    padding: 10px 30px;
+    background-color: var(--main-color-for-buttons);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: inline-block;
+}
+
+.play-button img {
+    width: 15px;
+    margin-right: 10px;
+}
+
+.bookmark {
+    margin-left: 10%;
+    padding: 10px 30px;
+    border: none;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+.bookmark:hover {
+    background: var(--main-color-for-buttons);
+}
+
+.watch-button {
+    width: 50px;
+    margin-right: 20px;
+}
+
+.trailer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 1.1em;
+    margin-top: 10%;
+}
+
+.popup {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    visibility: visible;
+    opacity: 0;
+}
+
+.popup.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup video {
+    max-width: 900px;
+    outline: none;
+}
+
+.close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    max-width: 40px;
+}
+
+@media (max-width: 940px) {
+    header {
+        padding: 0;
+            flex-direction: column;
+    }
+    header ul li {
+        font-size: 0.9rem;
+    }
+    .search-bar {
+        margin-top: 10px;
+    }
+    .showcase {
+        position: relative;
+        top: 100px;
+        align-items: center;
+    }
+    .showcase p {
+        text-align: center;
+    }
+    .buttons {
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 650px) {
+    header ul li {
+        font-size: 0.9rem;
+    }
+    .name h1 {
+        font-size: 2.5rem;
+    }
+    .showcase {
+        padding: 10px 10px;
+    }
+}
+
+@media (max-width: 430px) {
+    header ul {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .producer {
+        max-width: 150px;
+    }
+.name h1 {
+    font-size: 1.7rem;
+}
+
+.showcase p {
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+.info div {
+    padding: 0 7px;
+}
+.trailer {
+    font-size: 0.9em;
+}
+.watch-button {
+    width: 30px;
+    margin-right: 10px;
+}
+
+}
+
+@media(max-width: 370px) {
+    .showcase {
+        top: 120px;
+    }
+    /* .buttons {
+        flex-direction: column;
+    } */
+    .play-button {
+        padding: 5px 15px;
+        margin-bottom: 10px;
+    }
+    .bookmark{
+        padding: 10px 15px;
+        margin: 0;
+    }
+
+}
